@@ -18,6 +18,13 @@ def Merge(array, p, q, r):
     i = 0
     j = 0
     
+<<<<<<< HEAD
+=======
+
+    i = 1
+    j = 1
+
+>>>>>>> 3dab74e25edc862e250610b09b454c9cad33c0a4
     for k in range(r-p):
         if L[i] <= R[j]:
             array[k] = L[i]
@@ -29,8 +36,25 @@ def Merge(array, p, q, r):
 
 def Merge_Sort(A, p, r):
     if p < r:
-        q = math.floor((p+r)/2)
+        q = int(math.floor((p+r)/2))
         Merge_Sort(A, p, q)
+        final = Merge(A, p, q, r)
+        print(final)
         Merge_Sort(A, q+1, r)
         final = Merge(A, p, q, r)
         return final
+    
+def main():
+    print("Input 3 numbers")
+    array = []
+    number1 = input("Enter number 1: ")
+    array.append(int(number1))
+    number2 = input("Enter number 2: ")
+    array.append(int(number2))
+    number3 = input("Enter number 3: ")
+    array.append(int(number3))
+    
+    Merge_Sort(array, 1, 3)
+
+if __name__=="__main__": 
+    main()

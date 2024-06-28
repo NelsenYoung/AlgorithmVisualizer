@@ -5,18 +5,19 @@ def Merge(array, p, q, r):
     n2 = r - q
     L = []
     R = []
+
+    i = 0
+    j = 0
+
     for i in range(n1):
-        L.append(array[p + 1 - 1])
+        L.append(array[p + i])
     
     for j in range(n2):
-        R.append(array[q + j])
+        R.append(array[q + j + 1])
+
+    i = 0
+    j = 0
     
-    L[n1 + 1] = 999999999999999999
-    R[n2 + 1] = 999999999999999999
-
-    i = 1
-    j = 1
-
     for k in range(r-p):
         if L[i] <= R[j]:
             array[k] = L[i]

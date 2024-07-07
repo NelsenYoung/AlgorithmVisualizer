@@ -9,28 +9,26 @@ def Merge(array, p, q, r):
     i = 0
     j = 0
 
-    for i in range(n1):
-        L.append(array[p + i])
-    
-    for j in range(n2):
-        R.append(array[q + j + 1])
+    for i in range(n1 + 1):
+        if i == n1:
+            L.append(float('inf'))
+        else:
+            L.append(array[p + i])
+    for j in range(n2 + 1):
+        if j == n2:
+            R.append(float('inf'))
+        else:
+            R.append(array[q + j + 1])
 
     i = 0
     j = 0
-    
-<<<<<<< HEAD
-=======
 
-    i = 1
-    j = 1
-
->>>>>>> 3dab74e25edc862e250610b09b454c9cad33c0a4
-    for k in range(r-p):
+    for k in range(r - p + 1):
         if L[i] <= R[j]:
-            array[k] = L[i]
+            array[k + p] = L[i]
             i = i + 1
         else:
-            array[k] = R[j]
+            array[k + p] = R[j]
             j = j + 1
     return array
 
@@ -38,8 +36,6 @@ def Merge_Sort(A, p, r):
     if p < r:
         q = int(math.floor((p+r)/2))
         Merge_Sort(A, p, q)
-        final = Merge(A, p, q, r)
-        print(final)
         Merge_Sort(A, q+1, r)
         final = Merge(A, p, q, r)
         return final
@@ -54,7 +50,7 @@ def main():
     number3 = input("Enter number 3: ")
     array.append(int(number3))
     
-    Merge_Sort(array, 1, 3)
+    print(Merge_Sort(array, 1, 3))
 
 if __name__=="__main__": 
     main()
